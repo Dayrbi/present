@@ -9,6 +9,7 @@ const throwContainer = document.querySelector('.throw');
 
 but.addEventListener('click', handleClick);
 link.addEventListener('click', handleClickLink);
+document.addEventListener('keydown', handleEnter)
 
 function handleClick (event) {
     event.preventDefault();
@@ -21,6 +22,21 @@ function handleClick (event) {
     }
     else {
         input.classList.add('is-invalid');
+    }
+}
+function handleEnter (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        if(input.value === "1609") {
+            mainContainer.classList.add('disabled');
+            container.classList.remove('disabled');
+            container.classList.add('active');
+            link.classList.add('active');
+            div_container.classList.add('active-background');
+        }
+        else {
+            input.classList.add('is-invalid');
+        }
     }
 }
 function handleClickLink(event) {
